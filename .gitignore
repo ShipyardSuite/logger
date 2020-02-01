@@ -1,0 +1,4 @@
+/node_modules
+/_legacy
+.env
+*.DS_Store
