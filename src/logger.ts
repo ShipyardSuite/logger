@@ -6,8 +6,8 @@ export class Logger {
 	public Message: Message;
 
 	private service: string = String(process.env.SERVICE_NAME) || 'undefined';
-	private host: string = String(process.env.REDIS_URL);
-	private port: number = Number(process.env.REDIS_PORT);
+	private host: string = String(process.env.REDIS_URL) || 'localhost';
+	private port: number = Number(process.env.REDIS_PORT) || 3000;
 	private password: string = String(process.env.REDIS_PASSWORD);
 	private collection: string = String(process.env.REDIS_COLLECTION) || 'logs';
 
@@ -22,15 +22,15 @@ export class Logger {
 		this.Message = new Message(this.client, this.collection, this.service);
 
 		this.client.on('connect', () => {
-			console.log(`LOGGER: Connection to redis at ${this.host}:${this.port} => successful`);
+			console.log(`LOGGER: Connection to redis successful`);
 		});
 
 		this.client.on('error', function(err) {
-			console.log(`LOGGER: Connection to redis at ${this.host}:${this.port} => failed`);
+			console.log(`LOGGER: Connection to redis failed`);
 		});
 	}
 
-	getMessages(sum, callback) {
+	getMessages(sum: number, callback: any) {
 		this.client.hgetall(this.collection, (e, data) => {
 			if (e) console.log(e);
 

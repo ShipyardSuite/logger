@@ -1,9 +1,10 @@
 {
 	"name": "@shipyardsuite/logger",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Custom logger for Shipyard GCDN",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"scripts": {
+		"build": "tsc",
 		"test": "ts-node tests/test-logger.ts"
 	},
 	"repository": {
@@ -27,5 +28,5 @@
 	"directories": {
 		"test": "tests"
 	},
-	"devDependencies": {}
+	"types": "dist/index.d.ts"
 }

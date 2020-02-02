@@ -3,13 +3,14 @@ import { RedisClient } from 'redis';
 export class Message {
 	private client: RedisClient;
 	private collection: string;
-	private loglevel: string;
 	private service: string;
+	private loglevel: string;
 
 	constructor(client: RedisClient, collection: string, service: string) {
 		this.client = client;
 		this.collection = collection;
 		this.service = service;
+		this.loglevel = 'undefined';
 	}
 
 	info(data: object) {
@@ -32,7 +33,7 @@ export class Message {
 		this.setMessage(data);
 	}
 
-	setMessage(data) {
+	setMessage(data: any) {
 		data.timestamp = Math.floor(Date.now());
 		data.loglevel = this.loglevel;
 		data.service = this.service;
