@@ -1,6 +1,6 @@
 {
 	"name": "@shipyardsuite/logger",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Custom logger for Shipyard GCDN",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

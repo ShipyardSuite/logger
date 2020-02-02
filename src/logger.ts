@@ -7,7 +7,7 @@ export class Logger {
 
 	private service: string = String(process.env.SERVICE_NAME) || 'undefined';
 	private host: string = String(process.env.REDIS_URL) || 'localhost';
-	private port: number = Number(process.env.REDIS_PORT) || 3000;
+	private port: number = Number(process.env.REDIS_PORT) || 6379;
 	private password: string = String(process.env.REDIS_PASSWORD);
 	private collection: string = String(process.env.REDIS_COLLECTION) || 'logs';
 
