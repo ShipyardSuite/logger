@@ -1,5 +1,5 @@
 {
-	"name": "logger",
+	"name": "@shipyardsuite/logger",
 	"version": "0.1.0",
 	"description": "Custom logger for Shipyard GCDN",
 	"main": "index.js",
@@ -12,7 +12,7 @@
 	},
 	"keywords": [],
 	"author": "Shipyard Suite <shipyardsuite@gmail.com>",
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"bugs": {
 		"url": "https://github.com/ShipyardSuite/logger/issues"
 	},
@@ -23,5 +23,9 @@
 		"redis": "^2.8.0",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.7.5"
-	}
+	},
+	"directories": {
+		"test": "tests"
+	},
+	"devDependencies": {}
 }

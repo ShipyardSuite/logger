@@ -5,11 +5,11 @@ export class Logger {
 	public client: redis.RedisClient;
 	public Message: Message;
 
-	private service: string = String(process.env.SERVICE_NAME);
+	private service: string = String(process.env.SERVICE_NAME) || 'undefined';
 	private host: string = String(process.env.REDIS_URL);
 	private port: number = Number(process.env.REDIS_PORT);
 	private password: string = String(process.env.REDIS_PASSWORD);
-	private collection: string = String(process.env.REDIS_COLLECTION);
+	private collection: string = String(process.env.REDIS_COLLECTION) || 'logs';
 
 	constructor() {
 		this.client = redis.createClient({
