@@ -23,8 +23,8 @@ export class Message {
 		this.setMessage(data);
 	}
 
-	warn(data: object) {
-		this.loglevel = 'warn';
+	warning(data: object) {
+		this.loglevel = 'warning';
 		this.setMessage(data);
 	}
 
