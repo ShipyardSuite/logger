@@ -1,7 +1,7 @@
 import * as redis from 'redis';
 import { Message } from './message';
 
-export class Logger {
+export default class Logger {
 	public client: redis.RedisClient;
 	public Message: Message;
 
