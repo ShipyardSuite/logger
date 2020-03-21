@@ -30,8 +30,8 @@ export class Logger {
 		});
 	}
 
-	getMessages(sum: number, callback: any) {
-		this.client.hgetall(this.collection, (e, data) => {
+	getMessages(callback: any) {
+		this.client.hgetall(this.collection, (e, data: any) => {
 			if (e) console.log(e);
 
 			callback(data);
