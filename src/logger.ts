@@ -26,7 +26,7 @@ export default class Logger {
 		});
 
 		this.client.on('error', function(err) {
-			console.log(`LOGGER: Connection to redis failed`);
+			console.log(`LOGGER: ${err}`);
 		});
 	}
 
