@@ -1,10 +1,20 @@
 import { Logger } from './../index';
 
-const logger = new Logger();
-logger.Message.debug({ path: '/' });
-logger.Message.debug({ path: '/', action: 'test' });
-logger.Message.debug({ path: '/', user: 'admin' });
+let testMessages;
 
-logger.getMessages(0, (messages: any) => {
-	console.log(messages);
+const logger = new Logger();
+logger.Message.info({ path: '/' }, (message: any) => {
+	console.log(message);
+});
+logger.Message.warning({ path: '/', action: 'test' }, (message: any) => {
+	console.log(message);
+});
+logger.Message.warning({ path: '/', action: 'Hello World' });
+logger.Message.error({ path: '/', action: 'test' }, (message: any) => {
+	console.log(message);
+});
+logger.Message.debug({ path: '/', user: 'admin', action: 'test' });
+
+logger.getMessages((messages: any) => {
+	testMessages = messages;
 });
