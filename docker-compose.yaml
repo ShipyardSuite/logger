@@ -1,20 +1,20 @@
 version: "3"
 
 services:
-    redis:
-        image: "redis"
-        command: redis-server --requirepass ${REDIS_PASSWORD}
-        container_name: redis
-        networks:
-            - all
-
     #redis:
-    #    image: redis
-    #    container_name: redis
-    #    ports:
-    #        - "6379:6379"
+    #    image: "redis"
+    #    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ##    container_name: redis
     #    networks:
-    #        - gateway
+    #        - all
+
+    redis:
+        image: redis
+        container_name: redis
+        ports:
+            - "6379:6379"
+        networks:
+            - gateway
 
     main:
         build: .
@@ -31,8 +31,8 @@ services:
             REDIS_URL: ${REDIS_URL}
             REDIS_PASSWORD: ${REDIS_PASSWORD}
         networks:
-            - all
+            - gateway
     
 
 networks:
-    all:
+    gateway:

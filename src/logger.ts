@@ -1,7 +1,7 @@
 import * as redis from 'redis';
 import { Message } from './message';
 
-export class Logger {
+export default class Logger {
 	public client: redis.RedisClient;
 	public Message: Message;
 
@@ -26,7 +26,7 @@ export class Logger {
 		});
 
 		this.client.on('error', function(err) {
-			console.log(`LOGGER: Connection to redis failed`);
+			console.log(`LOGGER: ${err}`);
 		});
 	}
 
