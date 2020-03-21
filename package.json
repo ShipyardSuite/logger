@@ -1,6 +1,10 @@
 {
 	"name": "@shipyardsuite/logger",
+<<<<<<< Updated upstream
 	"version": "0.1.6",
+=======
+	"version": "0.1.9",
+>>>>>>> Stashed changes
 	"description": "Custom logger for Shipyard GCDN",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
