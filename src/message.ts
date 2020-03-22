@@ -1,5 +1,4 @@
 import { RedisClient } from 'redis';
-import 'colorts/lib/string';
 
 export class Message {
 	private client: RedisClient;
@@ -53,28 +52,14 @@ export class Message {
 	}
 
 	displayMessage(message: any) {
+		const messageLogLevel = message.loglevel ? 'LOGLEVEL: ' + message.loglevel + ' - ' : '';
 		const messageTimestamp = new Date(message.timestamp).toLocaleString();
 		const messageService = message.service ? 'SERVICE: ' + message.service : '';
 		const messagePath = message.path ? 'PATH: ' + message.path : '';
 		const messageUser = message.user ? ' - USER: ' + message.user : '';
 		const messageAction = message.action ? ' - ACTION: ' + message.action : '';
 
-		let newMessage = `${messageTimestamp} - ${messageService} - ${messagePath}${messageUser}${messageAction}`;
-
-		switch (message.loglevel) {
-			case 'info':
-				newMessage = newMessage.green;
-				break;
-			case 'debug':
-				newMessage = newMessage.white;
-				break;
-			case 'warning':
-				newMessage = newMessage.yellow;
-				break;
-			case 'error':
-				newMessage = newMessage.red;
-				break;
-		}
+		let newMessage = `${messageLogLevel}${messageTimestamp} - ${messageService} - ${messagePath}${messageUser}${messageAction}`;
 
 		return newMessage;
 	}
